@@ -17,6 +17,7 @@ The skill format and metadata structure follow OpenClaw's conventions to maintai
 
 | Skill | Description |
 |-------|-------------|
+| `family` | Family management: scheduling, screen time tracking, and daily routines |
 | `github` | Interact with GitHub using the `gh` CLI |
 | `weather` | Get weather info using wttr.in and Open-Meteo |
 | `summarize` | Summarize URLs, files, and YouTube videos |
