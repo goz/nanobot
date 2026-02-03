@@ -108,13 +108,15 @@ nanobot agent -m "Suggest indoor activities for kids"
 ## 📊 Reports
 
 ```bash
-# Weekly screen time report
+# Weekly screen time report (GNU date)
 echo "Screen Time Report - Last 7 Days"
 for i in {0..6}; do
   DATE=$(date -d "$i days ago" '+%Y-%m-%d')
   TOTAL=$(grep "$DATE|Emma" ~/workspace/family/screen-time.log | awk -F'|' '{sum+=$4} END {print sum}')
   echo "$DATE: ${TOTAL:-0} minutes"
 done
+
+# For macOS/BSD, use: date -v-${i}d '+%Y-%m-%d'
 
 # Chores completed this week
 grep "$(date '+%Y-%m')" ~/workspace/family/chores-done.log | wc -l

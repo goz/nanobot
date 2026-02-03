@@ -44,12 +44,14 @@ echo "Used: $TOTAL minutes / Limit: $LIMIT minutes"
 
 ### Generate Weekly Report
 ```bash
-# Get last 7 days summary
+# Get last 7 days summary (GNU date)
 for i in {0..6}; do
   DATE=$(date -d "$i days ago" '+%Y-%m-%d')
   TOTAL=$(grep "$DATE" ~/workspace/family/screen-time.log | awk -F'|' '{sum+=$4} END {print sum}')
   echo "$DATE: ${TOTAL:-0} minutes"
 done
+
+# For macOS/BSD, use: date -v-${i}d '+%Y-%m-%d'
 ```
 
 ## Family Scheduling
