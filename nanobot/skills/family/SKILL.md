@@ -122,7 +122,7 @@ cp ~/workspace/family/evening-routine.txt ~/workspace/family/evening-routine-$(d
 ### Chore Management
 ```bash
 # Create chore assignments
-cat > ~/workspace/chores-weekly.txt << 'EOF'
+cat > ~/workspace/family/chores-weekly.txt << 'EOF'
 Monday|Child1|Clean room
 Monday|Child2|Take out trash
 Tuesday|Child1|Feed pet
@@ -138,7 +138,7 @@ Sunday|Both|Family cleanup
 EOF
 
 # Check today's chores
-grep "$(date +%A)" ~/workspace/chores-weekly.txt
+grep "$(date +%A)" ~/workspace/family/chores-weekly.txt
 ```
 
 ## Activity Scheduling
@@ -146,7 +146,7 @@ grep "$(date +%A)" ~/workspace/chores-weekly.txt
 ### Weekend Activity Planner
 ```bash
 # Create weekend schedule
-cat > ~/workspace/weekend-schedule.txt << 'EOF'
+cat > ~/workspace/family/weekend-schedule.txt << 'EOF'
 Saturday:
   9:00 AM - Breakfast
   10:00 AM - Outdoor play
@@ -170,7 +170,7 @@ EOF
 ### Activity Ideas Database
 ```bash
 # Create activity suggestions
-cat > ~/workspace/activity-ideas.txt << 'EOF'
+cat > ~/workspace/family/activity-ideas.txt << 'EOF'
 Indoor Activities:
 - Board games
 - Arts and crafts
