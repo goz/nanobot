@@ -39,24 +39,31 @@
 
 <table align="center">
   <tr align="center">
-    <th><p align="center">📈 24/7 Real-Time Market Analysis</p></th>
-    <th><p align="center">🚀 Full-Stack Software Engineer</p></th>
     <th><p align="center">📅 Smart Daily Routine Manager</p></th>
     <th><p align="center">📚 Personal Knowledge Assistant</p></th>
   </tr>
   <tr>
-    <td align="center"><p align="center"><img src="case/search.gif" width="180" height="400"></p></td>
-    <td align="center"><p align="center"><img src="case/code.gif" width="180" height="400"></p></td>
     <td align="center"><p align="center"><img src="case/scedule.gif" width="180" height="400"></p></td>
     <td align="center"><p align="center"><img src="case/memory.gif" width="180" height="400"></p></td>
   </tr>
   <tr>
-    <td align="center">Discovery • Insights • Trends</td>
-    <td align="center">Develop • Deploy • Scale</td>
     <td align="center">Schedule • Automate • Organize</td>
     <td align="center">Learn • Memory • Reasoning</td>
   </tr>
 </table>
+
+### 👨‍👩‍👧‍👦 Perfect for Families
+
+nanobot includes built-in **family management** features to help parents and children:
+
+- **📱 Screen Time Tracking**: Monitor and set limits on device usage
+- **⏰ Daily Routines**: Morning and evening checklists for kids
+- **📋 Chore Management**: Assign and track household responsibilities
+- **🎯 Activity Planning**: Schedule family activities and outings
+- **🔔 Smart Reminders**: Homework, bedtime, and meal time alerts
+- **👪 Parental Tools**: Device rules and usage reports
+
+Get started with family features: `nanobot agent -m "Help me set up family schedules"`
 
 ## 📦 Install
 
@@ -239,7 +246,119 @@ nanobot gateway
 
 </details>
 
-## ⚙️ Configuration
+## 👨‍👩‍👧‍👦 Family Features
+
+nanobot makes it easy to manage family routines, schedules, and screen time.
+
+<details>
+<summary><b>Screen Time Management</b></summary>
+
+Track and limit device usage for children:
+
+```bash
+# Log screen time
+nanobot agent -m "Log 45 minutes of iPad time for Emma"
+
+# Check today's usage
+nanobot agent -m "How much screen time did Emma use today?"
+
+# Set daily limits
+nanobot agent -m "Set screen time limit for Emma: 2 hours on weekdays, 3 hours on weekends"
+
+# Weekly report
+nanobot agent -m "Show me Emma's screen time report for this week"
+```
+
+The family skill stores logs in `~/workspace/family/screen-time.log` for easy tracking.
+
+</details>
+
+<details>
+<summary><b>Daily Routines & Reminders</b></summary>
+
+Set up automatic reminders for family activities:
+
+```bash
+# Homework reminder (weekdays at 4 PM)
+nanobot cron add --name "homework" --message "Time to start homework! 📚" --cron "0 16 * * 1-5"
+
+# Bedtime routine (every night at 8:30 PM)
+nanobot cron add --name "bedtime-warning" --message "30 minutes until bedtime! 🌙" --cron "30 20 * * *"
+
+# Morning routine (every day at 7 AM)
+nanobot cron add --name "morning-checkin" --message "Good morning! Time to get ready for the day 🌅" --cron "0 7 * * *"
+
+# Weekend activities (Saturday mornings at 9 AM)
+nanobot cron add --name "weekend-fun" --message "It's the weekend! What fun activity should we do today? 🎉" --cron "0 9 * * 6"
+```
+
+View all scheduled reminders:
+```bash
+nanobot cron list
+```
+
+</details>
+
+<details>
+<summary><b>Chore Management</b></summary>
+
+Organize and track household chores:
+
+```bash
+# Set up weekly chores
+nanobot agent -m "Create a weekly chore chart: Emma cleans her room on Monday, takes out trash on Thursday. Jake feeds the pet on Tuesday and Friday."
+
+# Check today's chores
+nanobot agent -m "What chores need to be done today?"
+
+# Mark chore as complete
+nanobot agent -m "Emma completed her room cleaning chore"
+```
+
+</details>
+
+<details>
+<summary><b>Activity Planning</b></summary>
+
+Plan and schedule family activities:
+
+```bash
+# Get activity suggestions
+nanobot agent -m "Suggest indoor activities for kids on a rainy day"
+
+# Schedule family time
+nanobot cron add --name "family-dinner" --message "Family dinner time! Let's gather at the table 🍽️" --cron "0 18 * * *"
+
+# Weekend planning
+nanobot agent -m "Create a weekend schedule: Saturday park visit at 10 AM, Sunday family movie at 7 PM"
+```
+
+</details>
+
+<details>
+<summary><b>Quick Family Setup</b></summary>
+
+Initialize family management in one command:
+
+```bash
+# Ask nanobot to set up everything
+nanobot agent -m "Set up family management for me. I have 2 kids (ages 8 and 11). Add homework reminders at 4 PM on weekdays, bedtime at 8:30 PM daily, and morning checklist at 7 AM."
+```
+
+Or use the family skill directly:
+```bash
+# View family skill documentation
+nanobot agent -m "Show me the family skill documentation"
+
+# Set up basic reminders
+nanobot agent -m "Use the family skill to create basic family schedule reminders"
+```
+
+</details>
+
+**Learn More**: See [`nanobot/skills/family/SKILL.md`](nanobot/skills/family/SKILL.md) for complete documentation.
+
+
 
 <details>
 <summary><b>Full config example</b></summary>
