@@ -269,7 +269,7 @@ nanobot agent -m "Set screen time limit for Emma: 2 hours on weekdays, 3 hours o
 nanobot agent -m "Show me Emma's screen time report for this week"
 ```
 
-The family skill stores logs in `~/workspace/screen-time.log` for easy tracking.
+The family skill stores logs in `~/workspace/family/screen-time.log` for easy tracking.
 
 </details>
 

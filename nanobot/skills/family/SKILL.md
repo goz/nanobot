@@ -14,20 +14,20 @@ Helps families manage daily routines, schedules, and screen time. Perfect for pa
 Keep a log of device usage:
 ```bash
 # Log screen time manually (minutes)
-echo "$(date '+%Y-%m-%d %H:%M')|Child1|iPad|45" >> ~/workspace/screen-time.log
+echo "$(date '+%Y-%m-%d %H:%M')|Child1|iPad|45" >> ~/workspace/family/screen-time.log
 
 # View today's screen time
-grep "$(date '+%Y-%m-%d')" ~/workspace/screen-time.log
+grep "$(date '+%Y-%m-%d')" ~/workspace/family/screen-time.log
 
 # Calculate total for today
-grep "$(date '+%Y-%m-%d')" ~/workspace/screen-time.log | awk -F'|' '{sum+=$4} END {print sum " minutes"}'
+grep "$(date '+%Y-%m-%d')" ~/workspace/family/screen-time.log | awk -F'|' '{sum+=$4} END {print sum " minutes"}'
 ```
 
 ### Set Daily Limits
 Store screen time limits in a config file:
 ```bash
 # Create limits file
-cat > ~/workspace/screen-time-limits.txt << 'EOF'
+cat > ~/workspace/family/screen-time-limits.txt << 'EOF'
 Child1|120|weekday
 Child1|180|weekend
 Child2|90|weekday
@@ -37,8 +37,8 @@ EOF
 # Check if limit reached
 CHILD="Child1"
 DAY_TYPE="weekday"  # or "weekend"
-TOTAL=$(grep "$(date '+%Y-%m-%d')|$CHILD" ~/workspace/screen-time.log | awk -F'|' '{sum+=$4} END {print sum}')
-LIMIT=$(grep "$CHILD|.*|$DAY_TYPE" ~/workspace/screen-time-limits.txt | awk -F'|' '{print $2}')
+TOTAL=$(grep "$(date '+%Y-%m-%d')|$CHILD" ~/workspace/family/screen-time.log | awk -F'|' '{sum+=$4} END {print sum}')
+LIMIT=$(grep "$CHILD|.*|$DAY_TYPE" ~/workspace/family/screen-time-limits.txt | awk -F'|' '{print $2}')
 echo "Used: $TOTAL minutes / Limit: $LIMIT minutes"
 ```
 
@@ -47,7 +47,7 @@ echo "Used: $TOTAL minutes / Limit: $LIMIT minutes"
 # Get last 7 days summary
 for i in {0..6}; do
   DATE=$(date -d "$i days ago" '+%Y-%m-%d')
-  TOTAL=$(grep "$DATE" ~/workspace/screen-time.log | awk -F'|' '{sum+=$4} END {print sum}')
+  TOTAL=$(grep "$DATE" ~/workspace/family/screen-time.log | awk -F'|' '{sum+=$4} END {print sum}')
   echo "$DATE: ${TOTAL:-0} minutes"
 done
 ```
@@ -88,7 +88,7 @@ nanobot cron add --name "dinner" --message "Dinner time! Let's gather at the tab
 Track completion of morning tasks:
 ```bash
 # Create morning routine template
-cat > ~/workspace/morning-routine.txt << 'EOF'
+cat > ~/workspace/family/morning-routine.txt << 'EOF'
 [ ] Wake up (7:00 AM)
 [ ] Make bed
 [ ] Brush teeth
@@ -99,13 +99,13 @@ cat > ~/workspace/morning-routine.txt << 'EOF'
 EOF
 
 # Create today's checklist
-cp ~/workspace/morning-routine.txt ~/workspace/morning-routine-$(date +%Y-%m-%d).txt
+cp ~/workspace/family/morning-routine.txt ~/workspace/family/morning-routine-$(date +%Y-%m-%d).txt
 ```
 
 ### Evening Routine Checklist
 ```bash
 # Create evening routine template
-cat > ~/workspace/evening-routine.txt << 'EOF'
+cat > ~/workspace/family/evening-routine.txt << 'EOF'
 [ ] Homework completed
 [ ] Dinner eaten
 [ ] Bath/shower
@@ -116,7 +116,7 @@ cat > ~/workspace/evening-routine.txt << 'EOF'
 EOF
 
 # Create today's checklist
-cp ~/workspace/evening-routine.txt ~/workspace/evening-routine-$(date +%Y-%m-%d).txt
+cp ~/workspace/family/evening-routine.txt ~/workspace/family/evening-routine-$(date +%Y-%m-%d).txt
 ```
 
 ### Chore Management
@@ -217,7 +217,7 @@ nanobot cron add --name "evening-checkin" --message "How was everyone's day? ðŸŒ
 ### Device Usage Rules
 ```bash
 # Create family device rules
-cat > ~/workspace/device-rules.txt << 'EOF'
+cat > ~/workspace/family/device-rules.txt << 'EOF'
 Family Device Rules:
 1. No devices during meals
 2. No devices 1 hour before bedtime
